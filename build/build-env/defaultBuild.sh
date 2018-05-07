@@ -26,8 +26,9 @@ elif [[ -d ${SRC_PKG} ]] ; then
     # Package is a directory
     echo "Package is a directory"
     mkdir -p ${DEPLOY_PKG}
-    for wf in ${SRC_PKG}/*.yaml ; do
-        dst=$(basename wf)
+
+    for wf in ${SRC_PKG}/*.wf.yaml ; do
+        dst=$(basename ${wf})
         parse ${wf} ${DEPLOY_PKG}/${dst}
     done
 else
